@@ -1,0 +1,19 @@
+# Despliegue en Render (https://render.com) con un clic: New > Blueprint
+services:
+  - type: web
+    name: agrogest-admin
+    runtime: docker
+    plan: free
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_LOCALE
+        value: es
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: SESSION_DRIVER
+        value: database
+      - key: LOG_CHANNEL
+        value: stderr
