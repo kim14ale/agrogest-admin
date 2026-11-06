@@ -6,7 +6,7 @@ Este repositorio contiene la **Administración** que alimenta al **Core** del pr
 > **Core aprobado:** a partir de los pesajes, la alimentación y los tratamientos, el sistema calcula la ganancia diaria de peso (regresión lineal), la ración ajustada, la dosis exacta de medicamentos, el índice de carga sanitaria, el Índice de Eficiencia del Engorde (IEE) y el punto óptimo de venta.
 > La administración registra los datos con los que trabajan esas fórmulas.
 
-**Demo:** `https://<tu-servicio>.onrender.com` (ver [Despliegue](#despliegue))
+**Demo:** `https://agrogest-admin.onrender.com` (ver [Despliegue](#despliegue))
 
 | Usuario | Correo | Contraseña |
 |---|---|---|
@@ -20,7 +20,6 @@ Este repositorio contiene la **Administración** que alimenta al **Core** del pr
 - **Laravel 12** (PHP 8.2+) con arquitectura **MVC**
 - **SQLite** por defecto (también funciona con **MySQL**, cambiando el `.env`)
 - Vistas **Blade** + **Bootstrap 5** (incluido en `public/css`, no depende de un CDN)
-- **Docker** para el despliegue
 
 ## Módulos de la administración
 
@@ -97,55 +96,6 @@ routes/web.php                   → Rutas
 
 ---
 
-## Instalación local
-
-Requisitos: PHP 8.2 o superior, Composer y Git. En Windows lo más simple es instalar **[Laragon](https://laragon.org)**, que ya incluye PHP y Composer.
-
-```bash
-git clone https://github.com/<tu-usuario>/agrogest-admin.git
-cd agrogest-admin
-composer install
-cp .env.example .env          # en Windows (cmd): copy .env.example .env
-php artisan key:generate
-php artisan migrate --seed    # si pregunta por crear database.sqlite, responder "yes"
-php artisan serve
-```
-
-Abrir `http://127.0.0.1:8000` e ingresar con `admin@agrogest.com` / `Admin2026*`.
-
-### Usar MySQL en lugar de SQLite
-
-En el `.env`:
-
-```
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=agrogest
-DB_USERNAME=root
-DB_PASSWORD=
-```
-
-Crear la base `agrogest` y ejecutar `php artisan migrate:fresh --seed`.
-
----
-
-## Despliegue
-
-El proyecto incluye `Dockerfile`, `docker/start.sh` y `render.yaml`.
-
-**Render (gratis):**
-
-1. Crear una cuenta en [render.com](https://render.com) con GitHub.
-2. **New → Blueprint** y elegir este repositorio. Render lee `render.yaml`.
-3. Esperar a que termine el build (5 a 10 minutos) y abrir la URL `https://agrogest-admin-xxxx.onrender.com`.
-
-Al arrancar, `docker/start.sh` crea la base SQLite, ejecuta las migraciones y carga los datos de ejemplo si la base está vacía.
-
-> En el plan gratuito de Render el disco no es permanente: al reiniciarse el servicio se vuelven a cargar los datos de ejemplo. Para datos permanentes se usa una base MySQL o PostgreSQL externa configurando `DB_CONNECTION` y las variables `DB_*`.
-
----
-
-## Autora
-
+##Autora
+Kimberlly Ramos
 Proyecto universitario · Ingeniería Web · 2026
