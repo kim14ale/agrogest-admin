@@ -6,7 +6,7 @@ Este repositorio contiene la **Administración** que alimenta al **Core** del pr
 > **Core aprobado:** a partir de los pesajes, la alimentación y los tratamientos, el sistema calcula la ganancia diaria de peso (regresión lineal), la ración ajustada, la dosis exacta de medicamentos, el índice de carga sanitaria, el Índice de Eficiencia del Engorde (IEE) y el punto óptimo de venta.
 > La administración registra los datos con los que trabajan esas fórmulas.
 
-**Demo:** `https://agrogest-admin.onrender.com` (ver [Despliegue](#despliegue))
+**Demo:** `https://agrogest-admin.onrender.com` 
 
 | Usuario | Correo | Contraseña |
 |---|---|---|
