@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             ['operator', 'Operario', 'Registra pesajes y alimentación'],
         ])->mapWithKeys(fn ($r) => [$r[0] => Role::create(['code' => $r[0], 'name' => $r[1], 'description' => $r[2]])]);
 
-        $admin = User::create(['first_name' => 'María', 'last_name' => 'Torres', 'email' => 'admin@agrogest.com', 'password' => 'Admin2026*', 'role_id' => $roles['admin']->id]);
+        $admin = User::create(['first_name' => 'Kim', 'last_name' => 'Ramos', 'email' => 'admin@agrogest.com', 'password' => 'Admin2026*', 'role_id' => $roles['admin']->id]);
         User::create(['first_name' => 'Luis', 'last_name' => 'Vega', 'email' => 'vet@agrogest.com', 'password' => 'Vet2026*', 'role_id' => $roles['vet']->id]);
 
         foreach (['Brahman' => 'Cebú, resistente al calor', 'Angus' => 'Carne de alta calidad', 'Charolais' => 'Gran tamaño y rápido crecimiento'] as $n => $d) {
